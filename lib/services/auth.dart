@@ -25,7 +25,7 @@ class AuthService {
       // 以下の行の処理の完了に時間がかかるため、 await を記述して、処理完了まで次の処理に進まないようにする
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
-      return _userFromFireaseUser(user);
+      return _userFromFirebaseUser(user);
     } catch(e) {
       print(e.toString());
       return null;
