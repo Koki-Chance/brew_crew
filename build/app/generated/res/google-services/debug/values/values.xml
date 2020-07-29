@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">15536651473-qtkvjuir8dos0ki4tubp1c3sc13q3ai2.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://ninja-brew-crew-c009f.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">15536651473</string>
+    <string name="google_api_key" translatable="false">AIzaSyAoh9D-84K2ZoMkH7-qJ95aAvR7m6uIVuE</string>
+    <string name="google_app_id" translatable="false">1:15536651473:android:da86c4296545787ab2d9f0</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAoh9D-84K2ZoMkH7-qJ95aAvR7m6uIVuE</string>
+    <string name="google_storage_bucket" translatable="false">ninja-brew-crew-c009f.appspot.com</string>
+    <string name="project_id" translatable="false">ninja-brew-crew-c009f</string>
+</resources>
