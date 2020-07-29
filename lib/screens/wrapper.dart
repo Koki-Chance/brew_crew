@@ -9,9 +9,13 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     // < > の中身は受け取りたい値の種類を指定する箇所
     final user = Provider.of<User>(context);
-    print(user);
 
     // return either Home or Authenticate widget
-    return Authenticate();  
+    if (user == null) {
+      return Authenticate();
+    } else {
+      return Home();
+    }
+    
   }
 }
