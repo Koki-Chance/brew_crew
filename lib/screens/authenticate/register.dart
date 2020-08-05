@@ -1,4 +1,6 @@
 import 'package:brew_crew/services/auth.dart';
+import 'package:brew_crew/shared/constants.dart';
+import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -15,6 +17,7 @@ class _RegisterState extends State<Register> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   // text field state
   String email = '';
@@ -24,7 +27,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
@@ -49,6 +52,10 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+                // フォームの見た目の設定
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
+
+                // バリデーションをかける（フォームの入力が空の場合、val に警告メッセージを代入する）
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -57,6 +64,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 // ↓ フォームに入力された文字が ● と表示される
                 obscureText: true,
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ cars long' : null,
@@ -74,9 +82,13 @@ class _RegisterState extends State<Register> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
+                    setState(() => loading = true);
                     dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                     if(result == null) {
-                      setState(() => error = 'please supply a valid email');
+                      setState(() {
+                        error = 'please supply a valid email';
+                        loading = false;
+                      });
                     }
                   }
                   
