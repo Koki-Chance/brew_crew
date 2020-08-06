@@ -1,7 +1,10 @@
 import 'package:brew_crew/models/brew.dart';
+import 'package:brew_crew/screens/home/brew_tile.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+
+
 
 
 class BrewList extends StatefulWidget {
@@ -15,15 +18,15 @@ class _BrewListState extends State<BrewList> {
 
     final brews = Provider.of<List<Brew>>(context);
     
-    brews.forEach((brew) {
-      print(brew.name);
-      print(brew.sugars);
-      print(brew.strength);
-    });
+    
 
 
-    return Container(
-      
+    return ListView.builder(
+      itemCount: brews.length,
+      // "index" contains the number which describes the order of the data in "brews"
+      itemBuilder: (context, index){
+        return BrewTile(brew: brews[index]);
+      },
     );
   }
 }
