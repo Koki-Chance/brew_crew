@@ -51,7 +51,7 @@ class _SettingsFormState extends State<SettingsForm> {
 
           //slider
           // round -> convert double(e.g. 100.0) into integer(without floating number)
-          // "??" -> "if this value exists"
+          // "_currentStrength ?? 100" -> "use _currentStrength as a value, if it's not, then use 100 as a value"
           Slider(
             value: ( _currentStrength ?? 100 ).toDouble(),
             activeColor: Colors.brown[_currentStrength ?? 100],
