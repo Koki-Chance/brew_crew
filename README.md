@@ -1,8 +1,15 @@
 # brew_crew
 
-A new Flutter project.
+A new Flutter project. This app can enable members of community to share each person's coffee preference. 
 
-## Getting Started
+You can make original app by changing its parameter. For example, you can turn this app to health check app if you replace coffee's type with "Health Problem". Please optimize this app and make your original app.
+
+# Used Technologies
+- firebase
+  - user management
+  - database
+
+## References
 
 This project is a starting point for a Flutter application.
 
